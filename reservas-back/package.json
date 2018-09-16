@@ -1,0 +1,31 @@
+{
+  "name": "reservas",
+  "version": "1.0.0",
+  "description": "back reservas",
+  "main": "server.js",
+  "scripts": {
+    "test": "tes.",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/camilofg/reservas.git"
+  },
+  "author": "Camilo Forero",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/camilofg/reservas/issues"
+  },
+  "homepage": "https://github.com/camilofg/reservas#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "pg": "^7.4.3",
+    "pg-hstore": "^2.3.2",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^8.3.0",
+    "sequelize": "^4.38.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  }
+}

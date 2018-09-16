@@ -1,0 +1,5 @@
+const config = {
+  "secret": "AAAAB3NzaC1yc2EAAAABJQAAAQEApml8OZ+RVO4/XFfvbri8jeAKPde8K0QoW/N3m15KczSBQvb1uOUj/Nkao79tCgz3sGpHIU2vAdUndBgbMd/RgleSIuxQubkshV8DIe+dDULBDOvBiXCzHKMnvKzw7NJrDH7g9ifddI7aVtBbkjmWuGFszvi/dhzgcoEUirsznLJWo190MOJYIgBO5PH8SrAW8RIF6cSPA2Ug1wUw72vtM2qIizVglMILdl4KzoFxT+O3aX+aKJHAP5SVyEKmK56b4rRyXw7g/JcpMjBS0I5T99Cv/91cRIqC3RFEijIkRs8ZzdeUII08P0JwlkOqtslc9hSZbfNxR1HcqnSWXPrvYQ== rsa-key-20180823"
+}
+
+module.exports = config;

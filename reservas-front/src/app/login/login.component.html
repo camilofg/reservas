@@ -1,0 +1,49 @@
+<br>
+<div class="container">
+  <div class="row offset-4 col-md-4">
+    <div class="login-component col-md-12">
+      <label>Correo:</label>
+      <input class="form-control" type="text" id="mail" placeholder="Correo" [(ngModel)]="mail" />
+      <label>Contrase&ntilde;a:</label>
+      <input class="form-control" type="password" id="password" placeholder="Contraseña" [(ngModel)]="password">
+      <!-- <div>
+        <input type="checkbox" id="recordar" [(ngModel)]="recordarUsuario">
+        <label for="recordar">Recordar mi usuario.</label>
+      </div> -->
+      <div *ngIf="error">
+        El usuario o la contraseña son incorrectos
+      </div>
+      <div class="text-center">
+        <input type="button" class="btn btn-success" (click)="ingresar()" value="Iniciar sesión" />
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal">
+          Registrarse
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Registro</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <label>Correo:</label>
+        <input type="text" class="form-control" placeholder="*Correo" [(ngModel)]="registro.mail" />
+        <label>Nombre:</label>
+        <input type="text" class="form-control" placeholder="*Nombre" [(ngModel)]="registro.name" />
+        <label>Constrase&ntilde;a:</label>
+        <input type="password" class="form-control" placeholder="*Contraseña" [(ngModel)]="registro.password" />
+        <label>Confirmar Constrase&ntilde;a:</label>
+        <input type="password" class="form-control" placeholder="*Confirmar Contraseña" [(ngModel)]="registro.confirmar" />
+      </div>
+      <div class="modal-footer">
+        <input type="button" (click)="registrarse()" [disabled]="!validarRegistro()" value="Registrarse">
+      </div>
+    </div>
+  </div>
+</div>
