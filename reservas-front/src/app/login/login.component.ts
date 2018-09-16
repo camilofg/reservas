@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { Http, Headers, RequestOptions } from '@angular/http';
-//import 'rxjs/add/operator/map';
+import { map } from 'rxjs/operators';
 
 import bcrypt  from 'bcryptjs';
 
@@ -56,14 +56,16 @@ export class LoginComponent implements OnInit {
 
   ingresar() {
     this.ingresarService().subscribe(response => {
+      alert(response);
       var user = (<any>response);
+      console.log("response: ", user);
       if(user.auth) {
         this.error = false;
         console.log((<any>response));
-        localStorage.setItem('usuario', JSON.stringify(user.user_id));
+        //localStorage.setItem('usuario', JSON.stringify(user.user_id));
         localStorage.setItem('my-auth-token', JSON.stringify(user.token));
-        localStorage.setItem('company', JSON.stringify(user.empresa));
-        window.location.href = '#/contest/' + user.empresa; // window.location.href = '#/{nombre empresa}/contest';
+        //localStorage.setItem('company', JSON.stringify(user.empresa));
+        window.location.href = '#/scheduler/';
       } 
       else 
       {
@@ -83,7 +85,7 @@ export class LoginComponent implements OnInit {
       mail: this.mail,
       password: this.password
     };
-    return this.http.post('/api/login', body, this.options);//.map(response => <String[]> response.json());
+    return this.http.post('/api/login', body, this.options).pipe(map(response => <String[]> response.json()));
   }
 
 }

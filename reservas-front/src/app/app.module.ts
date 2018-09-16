@@ -7,16 +7,19 @@ import { HttpModule} from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { SchedulerComponent } from './scheduler/scheduler.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  { path: 'scheduler', component: SchedulerComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    SchedulerComponent
   ],
   imports: [
     BrowserModule,

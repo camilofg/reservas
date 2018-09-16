@@ -25,18 +25,31 @@ module.exports = {
       .findAll({
         where: {mail: usuario.mail}
       })
-      .then(user => function(){
-            if (!bcrypt.compareSync(passwd, user.password)) return res.status(401).send({ auth: false, token: null });
-            // if user is found and password is valid  create a token
-            var token = jwt.sign({ id: user._id }, config.secret.replace(/['"]+/g, ''), {
-                expiresIn: 86400 // expires in 24 hours
-            });
-            res.status(200).send({ 
-              auth: true, 
-              token: token
-            });
+      .then(user => //res.status(200).send(user))
+        {
+          try{
+              let userSession = JSON.parse(JSON.stringify(user));
+              console.log("user in session: ", userSession[0]);
+              //console.log("user: ", user);
+              console.log("user pass: ", passwd);
+              console.log("user pass bd: ", userSession[0].password);
+              
+              var passwordIsValid = bcrypt.compareSync(passwd, userSession[0].password);
+              console.log("valid: ", passwordIsValid);
+              if (!passwordIsValid) return res.status(401).send({ auth: false, token: null });
+              // if user is found and password is valid  create a token
+              var token = jwt.sign({ id: user._id }, config.secret.replace(/['"]+/g, ''), {
+                  expiresIn: 86400 // expires in 24 hours
+              });
+              res.status(200).send({ 
+                auth: true, 
+                token: token
+              });
+            } catch (error) {
+              // TODO
+              console.log('Exception while login:', error);
           }
-        )
+        })
       .catch(error => res.status(400).send(error));
     }
     // return User
