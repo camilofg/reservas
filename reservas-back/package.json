@@ -18,12 +18,14 @@
   },
   "homepage": "https://github.com/camilofg/reservas#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "express": "^4.16.3",
+    "jsonwebtoken": "^8.3.0",
+    "path": "^0.12.7",
     "pg": "^7.4.3",
     "pg-hstore": "^2.3.2",
-    "bcryptjs": "^2.4.3",
-    "jsonwebtoken": "^8.3.0",
-    "sequelize": "^4.38.1"
+    "sequelize": "^4.38.1",
+    "sequelize-auto-migrations": "^1.0.2"
   },
   "devDependencies": {
     "nodemon": "^1.18.4"

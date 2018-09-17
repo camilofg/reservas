@@ -29,6 +29,6 @@ export class AppComponent {
     localStorage.removeItem("my-auth-token");
     localStorage.removeItem("usuario");
     localStorage.removeItem("company");
-    window.location.href = '#/';
+    window.location.href = '#/login';
   }
 }

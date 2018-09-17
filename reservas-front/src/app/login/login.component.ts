@@ -24,7 +24,6 @@ export class LoginComponent implements OnInit {
   }
 
   constructor(private http: Http ) {
-    localStorage.removeItem('usuario');
     let headers: Headers = new Headers();
     headers.append('Content-Type', 'application/json; charset=utf-8');
     headers.append("Cache-Control", "no-cache");
@@ -40,7 +39,7 @@ export class LoginComponent implements OnInit {
     this.callRegistro().subscribe(response => {
       alert("Registro Valido.");
       this.mostrarModal = false;
-      window.location.href = '';
+      window.location.href = '#/login';
     });
   }
 
@@ -51,20 +50,17 @@ export class LoginComponent implements OnInit {
 
   callRegistro() {
     this.registro.password = bcrypt.hashSync(this.registro.password, 8);
-    return this.http.post('/api/users', this.registro, this.options);//.map(response => <String[]>response.json());
+    return this.http.post('/api/users', this.registro, this.options).pipe(map(response => <String[]>response.json()));
   }
 
   ingresar() {
     this.ingresarService().subscribe(response => {
-      alert(response);
       var user = (<any>response);
       console.log("response: ", user);
       if(user.auth) {
         this.error = false;
         console.log((<any>response));
-        //localStorage.setItem('usuario', JSON.stringify(user.user_id));
         localStorage.setItem('my-auth-token', JSON.stringify(user.token));
-        //localStorage.setItem('company', JSON.stringify(user.empresa));
         window.location.href = '#/scheduler/';
       } 
       else 
