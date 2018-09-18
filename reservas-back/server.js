@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '/../reservas-front/dist/reservas-front')));
+app.use(express.static(path.join(__dirname, '/../reservas-front/dist/Images')));
 
 app.use(function (req, res, next) {
     //set headers to allow cross origin request.

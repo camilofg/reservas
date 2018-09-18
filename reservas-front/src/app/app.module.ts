@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { SchedulerComponent } from './scheduler/scheduler.component';
 import { HomeComponent } from './home/home.component';
+import { CourtsComponent } from './courts/courts.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -22,7 +23,8 @@ const routes: Routes = [
     AppComponent,
     LoginComponent,
     SchedulerComponent,
-    HomeComponent
+    HomeComponent,
+    CourtsComponent
   ],
   imports: [
     BrowserModule,
